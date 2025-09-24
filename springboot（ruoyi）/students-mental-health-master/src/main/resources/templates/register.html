@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>注册系统</title>
+<meta name="description" content="若依后台管理框架">
+<link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+<link href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}" rel="stylesheet"/>
+<link href="../static/css/style.min.css" th:href="@{/css/style.min.css}" rel="stylesheet"/>
+<link href="../static/css/login.min.css" th:href="@{/css/login.min.css}" rel="stylesheet"/>
+<link href="../static/ruoyi/css/ry-ui.css" th:href="@{/ruoyi/css/ry-ui.css?v=4.7.0}" rel="stylesheet"/>
+<!-- 360浏览器急速模式 -->
+<meta name="renderer" content="webkit">
+<!-- 避免IE使用兼容模式 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="../static/favicon.ico" th:href="@{favicon.ico}"/>
+<style type="text/css">label.error {
+    position: inherit;
+}</style>
+</head>
+<body class="signin">
+<div class="signinpanel">
+    <div class="row">
+        <div class="col-sm-7" style="position: absolute;top:20px">
+            <h1>
+                <img src="data:image/png;base64,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">
+            </h1>
+
+        </div>
+    </div>
+    <div style="width:300px;margin-left: 600px;margin-top: 100px;">
+        <form id="registerForm" autocomplete="off" style="box-shadow: 0 0 2px 2px #bdcee0;">
+            <h4 class="no-margins" style="color:black;">注册：</h4>
+            <input type="text" name="username" class="form-control uname" placeholder="用户名" maxlength="20"/>
+            <input type="password" name="password" class="form-control pword" placeholder="密码" maxlength="20"/>
+            <input type="password" name="confirmPassword" class="form-control pword" placeholder="确认密码" maxlength="20"/>
+            <input type="hidden" name="roleId" class="form-control uname" th:value="3" placeholder=" " maxlength="20"/>
+
+
+            <div class="row m-t" th:if="${captchaEnabled==true}">
+                <div class="col-xs-6">
+                    <input type="text" name="validateCode" class="form-control code" placeholder="验证码" maxlength="5">
+                </div>
+                <div class="col-xs-6">
+                    <a href="javascript:void(0);" title="点击更换验证码">
+                        <img th:src="@{/captcha/captchaImage(type=${captchaType})}" class="imgcode" width="85%"/>
+                    </a>
+                </div>
+            </div>
+            <strong style="color:#99C6FF">已经注册过? <a style="color:#1C84C6" th:href="@{/login}">直接登录&raquo;</a></strong>
+            <div class="checkbox-custom" th:classappend="${captchaEnabled==false} ? 'm-t'">
+                <input type="checkbox" id="acceptTerm" name="acceptTerm">
+            </div>
+            <button class="btn btn-success btn-block" id="btnSubmit" data-loading="正在验证注册，请稍后...">注册</button>
+        </form>
+    </div>
+</div>
+
+<script th:inline="javascript"> var ctx = [[@{/}]]; var captchaType = [[${captchaType}]]; </script>
+<!-- 全局js -->
+<script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<script src="../static/ajax/libs/validate/jquery.validate.min.js"
+        th:src="@{/ajax/libs/validate/jquery.validate.min.js}"></script>
+<script src="../static/ajax/libs/layer/layer.min.js" th:src="@{/ajax/libs/layer/layer.min.js}"></script>
+<script src="../static/ajax/libs/blockUI/jquery.blockUI.js" th:src="@{/ajax/libs/blockUI/jquery.blockUI.js}"></script>
+<script src="../static/ruoyi/js/ry-ui.js" th:src="@{/ruoyi/js/ry-ui.js?v=4.7.0}"></script>
+<script src="../static/ruoyi/register.js" th:src="@{/ruoyi/register.js}"></script>
+</body>
+</html>
